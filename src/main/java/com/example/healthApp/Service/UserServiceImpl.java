@@ -23,15 +23,16 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public User createUser(User user) {
-		User tempUser = new User();
-			tempUser.setAge(user.getAge());
-			tempUser.setHeight(user.getHeight());
-			tempUser.setWeight(user.getWeight());
-			tempUser.setId(user.getId());
-			tempUser.setName(user.getName());
-			tempUser.setRole(user.getRole());
-			tempUser.setUsername(user.getUsername());
-			tempUser.setPassword(passwordEncoder.encode(user.getPassword()));
+		User tempUser = User.builder()
+				.id(user.getId())
+				.name(user.getName())
+				.age(user.getAge())
+				.height(user.getHeight())
+				.weight(user.getWeight())
+				.role(user.getRole())
+				.username(user.getUsername())
+				.password(user.getPassword())
+				.build();
 		return userRepo.save(tempUser);
 	}
 

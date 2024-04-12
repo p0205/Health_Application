@@ -42,6 +42,7 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 	
+	
 	@Bean
 	public AuthenticationProvider authProvider()
 	{
@@ -65,7 +66,6 @@ public class SecurityConfig {
 				.requestMatchers("healthApp/logout").permitAll()
 				.requestMatchers("healthApp/deniedAccess").permitAll()
 				.requestMatchers("healthApp/failedAuth").permitAll()
-				.requestMatchers("healthApp/generateToken").permitAll()
 				.requestMatchers("healthApp/admin/**").hasRole("Admin")
 				.anyRequest().authenticated()
 	    )
