@@ -21,9 +21,10 @@ public class MyUserDetailsService implements UserDetailsService{
 		// TODO Auto-generated method stub
 		//retrieve data
 		User user = userRepo.findByUsername(username);
-		if(user==null)
+	
+		if(user.equals(null))
 		{
-			 throw new UsernameNotFoundException("登录用户["+username + "]没注册!");
+			 throw new UsernameNotFoundException("User : ["+username + "] is not found!");
 		}
 		//build a userDetails from the data retrieved
 		UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
@@ -31,7 +32,6 @@ public class MyUserDetailsService implements UserDetailsService{
 				.password(user.getPassword())
 				.roles(user.getRole())
 				.build();
-		
 		return userDetails;
 	}
 }

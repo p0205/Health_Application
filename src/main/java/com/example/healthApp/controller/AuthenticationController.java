@@ -46,13 +46,15 @@ public class AuthenticationController {
 
 		String providedUsername = req.getUsername();
 		String providedPassword = req.getPassword();
+		
 		Authentication token = new UsernamePasswordAuthenticationToken(providedUsername,providedPassword);
-			
+		System.out.println(token.toString());
 		//1. pass the unauthenticated token to authentication manager
 		//2. authentication manager check if it authenticated already
 		//3. if not, manager pass the request to provider for authentication
 		Authentication auth = authenticatonManager.authenticate(token);
 	
+		System.out.println("Reach here?" + auth.toString());
 		
 		if(auth.isAuthenticated())
 		{

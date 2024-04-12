@@ -31,10 +31,6 @@ public class UserController {
 		return "Hello Word";
 	}
 	
-
-
-	
-	
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody User user) {
 
@@ -72,9 +68,8 @@ public class UserController {
 
 	    @PutMapping("/update/{id}")
 	    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
-	    	User tempUser = new User();
+	    	User tempUser = User.builder().id(id).build();
 	    	tempUser = user;
-	    	tempUser.setId(id);
 	        User updatedUser = userService.updateUser(tempUser);
 	        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
 	    }

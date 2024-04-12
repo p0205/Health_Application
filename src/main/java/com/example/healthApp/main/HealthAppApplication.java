@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages= {"com.example.healthApp"})
 @EnableJpaRepositories(basePackages = {"com.example.healthApp.repo"})
 @EntityScan("com.example.healthApp.model")
-public class HeathAppApplication {
+public class HealthAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HeathAppApplication.class, args);
+		SpringApplication.run(HealthAppApplication.class, args);
 	      System.out.println("HI");
 	}
 
